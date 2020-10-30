@@ -6,9 +6,9 @@ export default function PokemonList() {
     
     const [pokemons, setPokemons] = useState([]);
     useEffect( () => {
-        async function fetchData() {
-            const response = await pokemonApi.getPokemonList();
-            setPokemons(response.data.results);
+        const fetchData = async () => {
+            const response = (await pokemonApi.getPokemonList()).data;
+            setPokemons(response.results);
         }
        fetchData();
     }, []);
@@ -17,10 +17,11 @@ export default function PokemonList() {
     return (
         <div>
             <h1>Pokemons List</h1>
-                {pokemons.map((pokemon, key) => {
+                {pokemons.map((pokemon) => {
+                    const {name} = pokemon;
                     return(
-                        <div key={`pokemon_${key}`}>
-                        <Link to={`pokemon-details/${pokemon.name}`}>{pokemon.name}</Link>
+                        <div key={`pokemon_${name}`}>
+                        <Link to={`pokemon-details/${name}`}>{name}</Link>
                         </div>
                     );
                 })}

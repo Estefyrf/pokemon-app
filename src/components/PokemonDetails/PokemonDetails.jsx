@@ -8,7 +8,7 @@ export default function PokemonDetails() {
     const [pokemon, setPokemon] = useState({});
 
     useEffect( () => {
-        async function fetchData() {
+        const fetchData = async () => {
             if (cache[pokemonName]) {
                 setPokemon(cache[pokemonName])  
             }
@@ -32,7 +32,10 @@ export default function PokemonDetails() {
            <img src={pokemon.image} alt={pokemonName}/>
            <div>Types</div>
             { pokemon.types 
-                ? pokemon.types.map((typesInfo, key) => <div key={`type_${key}`}>{typesInfo.type.name}</div>)
+                ? pokemon.types.map((typesInfo) => {
+                    const {type: { name }} = typesInfo;
+                    return <div key={`type_${name}`}>{name}</div>
+                })
                 : null
             }
            <div>Weight{pokemon.weight}</div>
