@@ -1,0 +1,20 @@
+.pokemon-details {
+    &__card-container {
+        margin: 20% 0;
+        border: solid #ffdd56 1px;
+        border-radius: 20px;
+        width: 500px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20%;
+    }
+
+    &__pokemon-image {
+        width: 100%;
+        
+    }
+
+}

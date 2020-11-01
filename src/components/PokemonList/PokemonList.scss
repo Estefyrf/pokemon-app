@@ -1,0 +1,30 @@
+.pokemon-list {  
+    font-size: 20px;
+    &__pokemon-logo {
+        margin: 20px 0;
+        width: 350px;
+    }
+    
+    &__cards-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 800px;
+    }
+    &__card {
+        margin: 8px;
+        border: solid #ffdd56 1px;
+        border-radius: 4px;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    &__link {
+        margin-top: 20px;
+        color: white;
+    }
+}
